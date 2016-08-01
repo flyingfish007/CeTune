@@ -295,7 +295,7 @@ class Tuner:
             else:
                 replica_size = 2
             if 'pg_num' not in self.worksheet[jobname]['pool'][new_poolname]:
-                new_pool_pg_num = 100 * self.cluster["osd_daemon_num"]/replica_size
+                new_pool_pg_num = 100 * self.cluster["osd_daemon_num"]/int(replica_size)
             else:
                 new_pool_pg_num = self.worksheet[jobname]['pool'][new_poolname]['pg_num']
             for cur_tuning_poolname in self.cur_tuning['pool'].keys():
